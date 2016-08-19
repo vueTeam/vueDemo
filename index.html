@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/vue.css">
+	<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id='vue'>
+		<div id='vue-logo'><img src="img/vue.png" alt=""></div>
+		<div class="vue-con" id="app">
+		    <!-- 选显卡 -->
+			<div class="table">
+				<h3 class="head"><img src="img/logo.png" alt="" class="img-logo"><span>{{table.name}}</span></h3>
+				<div id="table-demo" >
+				    <ul class="tabBar" >
+				        <li :class="{'current':$index==idx}" v-for="tabVal in table.tabBar" @click="tabChange($index)">{{tabVal.name}}</li>
+				    </ul>
+				    <div class="con">
+				        <div :class="{'cur':$index==idx}" v-for="tabVal in table.tabBar">{{tabVal.con}}</div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+	<script>
+		/*vue的颜色#42b983*/
+		/*https://github.com/hwb2167sq/vue-demo*/
+		new Vue({
+		    el: '#app',
+		    data: {
+		    	/*选显卡数据*/
+		    	idx:0,
+		        table:{
+		        	name:'选显卡',
+		        	tabBar:[
+		        		{name:'青春',con:'纸上得来终觉浅,绝知此事要躬行'},
+		        		{name:'灌溉',con:'来啊，互相伤害呀'},
+		        		{name:'光芒',con:'Pretty cool, right?'}
+		        	],
+		        }
+		    },
+		    methods:{
+		    	/*选显卡方法*/
+		    	tabChange:function(index){
+		    		this.idx=index;
+		    	},
+		    }
+		})
+	</script>
+</body>
+</html>
